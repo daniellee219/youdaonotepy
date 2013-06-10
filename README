@@ -1,0 +1,7 @@
+Youdao Note API Python SDK
+
+This code is a pure Python interface to Youdao Note API which provides OAuth2.0 authentication and API calling wrapper.
+
+Developed and mantained by Daniel Lee. Please feel free to report bugs and your suggestions at:
+
+https://github.com/daniellee219/youdaonotepy/
