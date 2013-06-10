@@ -232,6 +232,17 @@ class YNoteClient:
         res_dict = _parse_urlencoded(res)
         self.access_token = oauth2.Token(res_dict['oauth_token'], res_dict['oauth_token_secret'])
     
+    def set_access_token(self, token_key, token_secret):
+        '''set the access token'''
+        self.access_token = oauth2.Token(token_key, token_secret)
+
+    def get_access_token(self):
+        '''get current access token as key,secret'''
+        if self.access_token:
+            return self.access_token.key, self.access_token.secret
+        else
+            return "", ""
+
     def get_user(self):
         '''get user information, return as a User object.'''
         res = _do_get(BASE_URL+'yws/open/user/get.json', None, self.consumer, self.access_token)
