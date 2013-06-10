@@ -240,7 +240,7 @@ class YNoteClient:
         '''get current access token as key,secret'''
         if self.access_token:
             return self.access_token.key, self.access_token.secret
-        else
+        else:
             return "", ""
 
     def get_user(self):
