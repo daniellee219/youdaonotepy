@@ -4,12 +4,11 @@ Python SDK for [Youdao Note](http://note.youdao.com/) which provides
 * OAuth2.0 authentication
 * API calling wrapper
 
-Developed and maintained By [Daniel Lee](mailto:daniellee0219@gmail.com). All your bug reports and suggestions are welcome.
+Developed and maintained By [Daniel Lee](mailto:daniellee0219@gmail.com). Any bug reports or suggestions are welcome.
 
 # How to change base URL
 
 To prevent damages by unqualified applications, Youdao Note created an environment called the `Sandbox Environment`, which is completely isolated to the `Online Environment` so that you can test your application without modifying any existing data. You can switch to the `Sandbox Environment` by setting the `BASE_URL` as following:
-
 ```python
 import ynote
 
@@ -24,20 +23,17 @@ Note that the SDK uses the `Sandbox Environment` by default.
 # How to get privileges to Youdao Note API
 
 To access the Youdao Note API, you must setup your account at [Youdao Note API](http://note.youdao.com/open/) and apply for an API key. As soon as Youdao Note accepts your application, you'll receive your `Consumer Key` and `Consumer Secret`. Put these environment variables as constants in your code:
-
 ```python
 CONSUMER_KEY = 'Your Consumer Key'
 CONSUMER_SECRET = 'Your Consumer Secret'
 ```
 
 Then create a client with them:
-
 ```python
 client = ynote.YNoteClient(CONSUMER_KEY, CONSUMER_SECRET)
 ```
 
 Before accessing the actual API, call the following functions in turn to grant the privileges:
-
 ```python
 auth_url = client.grant_request_token(your_callback_url)
 client.grant_access_token(verifier)
@@ -51,7 +47,6 @@ The access token, which can be reused to access the open API before it expires, 
 ```python
 token_key,token_secret = client.get_access_token()  # Read
 client.set_access_token(token_key, token_secret)    # Write
-
 ```
 
 # How to access Youdao Note API
@@ -67,6 +62,6 @@ new_note.path = client.create_note(user.default_notebook, new_note)
 client.update_note(new_note)
 new_note.path = client.move_note(new_note.path, bookpath)
 shared_url = client.share_note(new_note.path)
-\# ......
+# ......
 ```
-For more methods and detailed usage of them, plese refre to [the wiki](https://github.com/daniellee219/youdaonotepy/wiki)
+For more methods and detailed usage of them, plese refre to [the wiki](https://github.com/daniellee219/youdaonotepy/wiki).
