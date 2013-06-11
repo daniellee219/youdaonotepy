@@ -4,7 +4,7 @@
 import ynote
 import webbrowser
 import os.path
-import oauth2
+import ynote.oauth2 as oauth2
 
 consumer_key = 'your consumer key'
 consumer_secret = 'your consumer secret'
