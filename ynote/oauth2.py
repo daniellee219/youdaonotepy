@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__version__ = "1.0"
+__version__ = "1.0b"
 __author__ = "Li Chuan (daniellee0219@gmail.com)"
 
 '''
