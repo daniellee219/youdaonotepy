@@ -2,3 +2,5 @@
 test.*
 *.token
 *.swp
+dist
+MANIFEST
