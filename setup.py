@@ -3,6 +3,11 @@
 from distutils.core import setup
 import ynote
 
+if ynote.__version__.endswith('b'):
+    dev_status = 'Development Status :: 4 - Beta'
+else:
+    dev_status = 'Development Status :: 5 - Production/Stable'
+
 kw=dict(name = 'ynote',
     version = ynote.__version__,
     description = 'Youdao Note Python SDK',
@@ -14,7 +19,7 @@ kw=dict(name = 'ynote',
     packages = ['ynote'],
     license = 'Apache License, Version 2.0',
     classifiers = [
-        'Development Status :: 5 - Production/Stable',
+        dev_status,
         'Environment :: Console',
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
