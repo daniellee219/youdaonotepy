@@ -290,6 +290,25 @@ class YNoteClient:
         }
         res = _do_post_multipart(BASE_URL+'yws/open/note/create.json', params, self.consumer, self.access_token)
         return json.loads(res)['path']
+
+    def create_note_with_attributes(self, book_path, content, **kw):
+        '''create a note with attributes given by parameters'''
+        params = { 'notebook':book_path, 'content':content }
+        
+        if 'source' in kw.keys():
+            params['source'] = kw['source']
+
+        if 'author' in kw.keys():
+            params['author'] = kw['author']
+
+        if 'title' in kw.keys():
+            params['title'] = kw['title']
+
+        if 'create_time' in kw.keys():
+            params['create_time'] = kw['create_time']
+        
+        res = _do_post_multipart(BASE_URL+'yws/open/note/create.json', params, self.consumer, self.access_token)
+        return json.loads(res)['path']
     
     def update_note(self, note, modify_time=None):
         '''update the note with information in "note".'''
@@ -303,7 +322,28 @@ class YNoteClient:
         if modify_time:
             params['modify_time'] = modify_time
             
-        res = _do_post_multipart(BASE_URL+'yws/open/note/update.json', params, self.consumer, self.access_token)
+        _do_post_multipart(BASE_URL+'yws/open/note/update.json', params, self.consumer, self.access_token)
+
+    def update_note_attributes(self, note_path, **kw):
+        '''update the some attributes(given by kw) of the note.'''
+        params = {'path':note_path}
+        
+        if 'source' in kw.keys():
+            params['source'] = kw['source']
+
+        if 'author' in kw.keys():
+            params['author'] = kw['author']
+
+        if 'title' in kw.keys():
+            params['title'] = kw['title']
+
+        if 'content' in kw.keys():
+            params['content'] = kw['content']
+
+        if 'modify_time' in kw.keys():
+            params['modify_time'] = kw['modify_time']
+        
+        _do_post_multipart(BASE_URL+'yws/open/note/update.json', params, self.consumer, self.access_token)
 
     def move_note(self, note_path, book_path):
         '''move note to the notebook with path denoted by "book_path".'''
